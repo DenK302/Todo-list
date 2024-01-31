@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head'); -%>
+    <%- include('./partials/navbar'); -%>
+<body>
+    <div class="container">
+        <h1 style="margin-bottom: 20px;">Create a new todo</h1>
+        <form class="list-group list-group-numbered" style="margin-top: 10px; margin-bottom: 20px;" method="post" action="/create/submit">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Title</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="title">
+                <div id="emailHelp" class="form-text"></div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Description</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="description">
+                <div id="emailHelp" class="form-text">Todo's description</div>
+            </div>
+              <button type="submit" class="btn btn-primary">Create</button>
+          </form>
+    </div>
+</body>
+</html>

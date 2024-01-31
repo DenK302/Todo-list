@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head'); -%>
+<body>
+    <%- include('./partials/navbar'); -%>
+    <div class="container">
+        <h1 style="margin-bottom: 20px;"><%=result.title%></h1>
+        <form class="list-group list-group-numbered" style="margin-top: 10px; margin-bottom: 20px;" method="post" action="/todo/update/?id=<%=result._id%>">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Title</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="title" value="<%=result.title%>">
+                <div id="emailHelp" class="form-text"></div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Description</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="description" value="<%=result.description%>">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Created At</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="date" value="<%=new Date(result.date).toString()%>" readonly>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Completed:</label>
+                <input class="form-check-input" style="width: 20px; height: 20px;" type="checkbox" name="completed" aria-label="Checkbox for following text input" <%if(result.completed==true) {%> checked<%}%>>
+            </div>
+              <button type="submit" class="btn btn-primary">Update</button>
+          </form>
+    </div>
+</body>
+</html>

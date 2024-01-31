@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head'); -%>
+<body>
+    <%- include('./partials/navbar'); -%>
+    <div class="container">
+        <h1 style="margin-bottom: 20px;">My todo's</h1>
+        <% result.forEach(element => { %>
+        <div class="input-group mb-3">
+            <div class="input-group-text">
+              <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input" disabled <%if(element.completed==true) {%> checked<%}%>>
+            </div>
+            <a type="text" class="form-control" aria-label="Text input with checkbox" href="/todo/?id=<%=element._id%>"><%=element.title%></a>
+            <form method="post" action="/delete/?id=<%=element._id%>">
+                <button type="submit" class="btn btn-primary">Remove</button>
+            </form>
+          </div>
+          <%});%>
+    </div>
+</body>
+</html>
